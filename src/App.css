@@ -1,3 +1,4 @@
+/* REACT DEFAULTS (REMOVE WHEN ADDING OWN STYLING) */
 .App {
   text-align: center;
 }
@@ -35,4 +36,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* HEADER */
+.font-face-ers {
+  font-family: 'MantiniaRegular';
+}
+
+.title-main {
+  height: auto;
+  max-width: 40%;
+}
+
+.subtitle-main {
+  margin-top: -2.5%;
+  font-size: 4rem;
+  color: #bf9769;
 }
