@@ -3,13 +3,23 @@ import React, { useState } from 'react'
 export default function BossCard(props) {
   const [flipped, setFlipped] = useState(false)
 
+  const handleEnter = () => {
+    setFlipped(true)
+    console.log(flipped)
+  }
+
+  const handleLeave = () => {
+    setFlipped(false)
+    console.log(flipped)
+  }
+
   const { name, image, description, region, location, healthPoints, drops } = props.boss
   return (
     <div className='bosscard'>
       <h4>{name}</h4>
-      <div className='flipImg'>
-        <img className={flipped ? 'flip' : 'no-flip'} src={image} alt='boss' />
-        <p className={flipped ? 'flip' : 'no-flip'}>{description}</p>
+      <div className='flipImg' onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+        <img className={flipped ? 'hidden' : ''} src={image} alt='boss' />
+        <p className={flipped ? '' : 'hidden'}>{description}</p>
       </div>
       <p>Region: {region}</p>
       <p>Location: {location}</p>

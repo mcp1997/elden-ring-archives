@@ -53,3 +53,8 @@
   font-size: 4rem;
   color: #bf9769;
 }
+
+/* BOSSES */
+.hidden {
+  display: none;
+}
