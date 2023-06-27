@@ -7,11 +7,14 @@ export default function BossArchive(props) {
   const [letter, setLetter] = useState('')
   const [region, setRegion] = useState('')
   const [bosses, setBosses] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const handleSearch = e => {
     e.preventDefault()
+    setLoading(true)
     console.log({ chosenLetter: letter, chosenRegion: region })
     setBosses(fixedData)
+    setLoading(false)
   }
 
   return (
@@ -63,6 +66,7 @@ export default function BossArchive(props) {
               <option value='DRAGONBARROW'>DRAGONBARROW</option>
               <option value='MOUNTAINTOPS OF THE GIANTS'>MOUNTAINTOPS OF THE GIANTS</option>
               <option value='CONSECRATED SNOWFIELD'>CONSECRATED SNOWFIELD</option>
+              <option value='MIQUELLAS HALIGTREE'>MIQUELLA'S HALIGTREE</option>
               <option value='CRUMBLING FARUM AZULA'>CRUMBLING FARUM AZULA</option>
               <option value='SIOFRA RIVER'>SIOFRA RIVER</option>
             </select>
@@ -72,9 +76,10 @@ export default function BossArchive(props) {
       </div>
       <div className='bosscard-container'>
         {
-          bosses.map(boss => {
-            return <BossCard key={boss.id} boss={boss} />
-          })
+          loading &&
+            bosses.map(boss => {
+              return <BossCard key={boss.id} boss={boss} />
+            })
         }
       </div>
     </div>
