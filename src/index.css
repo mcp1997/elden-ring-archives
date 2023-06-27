@@ -50,16 +50,18 @@ table {
     url('./assets/fonts/elden-ring-style/Mantinia-Regular.otf') format('opentype')
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Cinzel';
+  src: local('Cinzel'),
+    url('./assets/fonts/cinzel/Cinzel-VariableFont_wght.ttf') format('truetype')
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* UNIVERSAL CSS */
+body {
+  text-align: center;
+  background-image: url('./assets/media/elden-ring-background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }

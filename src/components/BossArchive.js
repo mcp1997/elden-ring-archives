@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import BossCard from './BossCard'
 import fixedData from '../fixedData'
 
@@ -14,10 +15,10 @@ export default function BossArchive(props) {
   }
 
   return (
-    <div className='bossArchive'>
-      <h2>Bosses</h2>
+    <div className='BossArchive font-face-cinzel'>
+      <h2>Boss Archive</h2>
       <div className='boss-filter'>
-        <h3>Filter Alphabetically/By Region, or leave blank to see ALL bosses</h3>
+        <h3>Filter Alphabetically/By Region, or leave blank to see all bosses</h3>
         <form onSubmit={handleSearch}>
           <label>Alphabetically&nbsp;
             <select name='byAlpha' onChange={e => { setLetter(e.target.value) }}>
@@ -66,7 +67,7 @@ export default function BossArchive(props) {
               <option value='SIOFRA RIVER'>SIOFRA RIVER</option>
             </select>
           </label>
-          <button>Search</button>
+          <button className='cool-button'>Search</button>
         </form>
       </div>
       <div className='bosscard-container'>
