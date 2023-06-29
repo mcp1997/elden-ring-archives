@@ -3,13 +3,13 @@ import './App.css';
 import { Routes, Route, Link } from 'react-router-dom'
 import titleLogo from './assets/media/eldenring_title.png'
 import Home from './components/Home'
-import ArmorArchive from './components/ArmorArchive'
-import WeaponArchive from './components/WeaponArchive'
-import ShieldArchive from './components/ShieldArchive'
-import TalismanArchive from './components/TalismanArchive'
-import AshArchive from './components/AshArchive'
-import NPCArchive from './components/NPCArchive'
-import BossArchive from './components/BossArchive'
+import ArmorArchive from './components/armor/ArmorArchive'
+import WeaponArchive from './components/weapons/WeaponArchive'
+import ShieldArchive from './components/shields/ShieldArchive'
+import TalismanArchive from './components/talismans/TalismanArchive'
+import AshArchive from './components/ashes/AshArchive'
+import NPCArchive from './components/npcs/NPCArchive'
+import BossArchive from './components/bosses/BossArchive'
 
 export default function App(props) {
   return (

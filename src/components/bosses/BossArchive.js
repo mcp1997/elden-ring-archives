@@ -1,28 +1,26 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import BossCard from './BossCard'
-import fixedData from '../fixedData'
+import { connect } from 'react-redux'
+import BossList from './BossList'
+import loadingGif from '../../assets/media/fetching-pot.gif'
 
-export default function BossArchive(props) {
+// const LIMIT = 24
+// const ENDPOINT = `https://eldenring.fanapis.com/api/bosses?limit=24&page=${page}`
+
+function BossArchive(props) {
   const [letter, setLetter] = useState('')
   const [region, setRegion] = useState('')
-  const [bosses, setBosses] = useState([])
-  const [loading, setLoading] = useState(false)
 
-  const handleSearch = e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    setLoading(true)
-    console.log({ chosenLetter: letter, chosenRegion: region })
-    setBosses(fixedData)
-    setLoading(false)
   }
 
+  const { loading, error } = props
   return (
     <div className='BossArchive font-face-cinzel'>
       <h2>Boss Archive</h2>
       <div className='boss-filter'>
         <h3>Filter Alphabetically/By Region, or leave blank to see all bosses</h3>
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSubmit}>
           <label>Alphabetically&nbsp;
             <select name='byAlpha' onChange={e => { setLetter(e.target.value) }}>
               <option value=''></option>
@@ -74,14 +72,21 @@ export default function BossArchive(props) {
           <button className='cool-button'>Search</button>
         </form>
       </div>
+      <div className='loading-container'>
+        { loading && <img className='loading' src={loadingGif} alt='loading' />}
+      </div>
       <div className='bosscard-container'>
-        {
-          loading &&
-            bosses.map(boss => {
-              return <BossCard key={boss.id} boss={boss} />
-            })
-        }
+        { error ? error : <BossList />}
       </div>
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    loading: state.bossReducer.loading,
+    error: state.bossReducer.error
+  }
+}
+
+export default connect(mapStateToProps)(BossArchive)
