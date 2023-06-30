@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import BossList from './BossList'
 import loadingGif from '../../assets/media/fetching-pot.gif'
+import { getArchive } from '../../actions'
 
 // const LIMIT = 24
 // const ENDPOINT = `https://eldenring.fanapis.com/api/bosses?limit=24&page=${page}`
@@ -12,6 +13,7 @@ function BossArchive(props) {
 
   const handleSubmit = e => {
     e.preventDefault()
+    props.getArchive('https://eldenring.fanapis.com/api/bosses', 24)
   }
 
   const { loading, error } = props
@@ -89,4 +91,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(BossArchive)
+export default connect(mapStateToProps, { getArchive })(BossArchive)
